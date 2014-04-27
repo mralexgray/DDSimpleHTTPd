@@ -2,12 +2,12 @@
 //  SimpleHTTPServer.h
 //
 //  Created by Jürgen on 19.09.06.
-//  Copyright 2006 Cultured Code.
+//  © 2006 Cultured Code.
 //  License: Creative Commons Attribution 2.5 License
 //           http://creativecommons.org/licenses/by/2.5/
 //
 //  Refactored for new objC,ARC and ios/foundation.framework 24.5.13
-//  Copyright 2013 Dominik Pich
+//  © 2013 Dominik Pich
 //
 
 #import <Foundation/Foundation.h>
@@ -25,14 +25,13 @@
 
 // Request currently being processed
 // Note: this need not be the most recently received request
-@property(nonatomic, readonly) SimpleHTTPRequest *currentRequest;
+@property(readonly) SimpleHTTPRequest *currentRequest;
 
-@property(nonatomic, readonly) SimpleHTTPResponder *responder;
-@property(nonatomic, readonly) NSArray *connections;
-@property(nonatomic, readonly) NSArray *requests;
-@property(nonatomic, readonly) NSUInteger port;
+@property(readonly) SimpleHTTPResponder *responder;
+@property(readonly) NSArray *connections, *requests;
+@property(readonly) NSUInteger port;
 
-@property(nonatomic, assign, getter = isLoggingEnabled) BOOL loggingEnabled;
+@property(nonatomic) BOOL loggingEnabled;
 
 @end
 

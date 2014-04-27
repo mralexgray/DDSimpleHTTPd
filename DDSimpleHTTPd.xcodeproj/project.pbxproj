@@ -40,10 +40,8 @@
 		B3511EA717500F170006BA82 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3511EA617500F170006BA82 /* ViewController.xib */; };
 		B3511EAA175010C60006BA82 /* liblibDDSimpleHTTPd_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3743380174FCD37004D0FC5 /* liblibDDSimpleHTTPd_ios.a */; };
 		B3511EAC175010D50006BA82 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3511EAB175010D50006BA82 /* CFNetwork.framework */; };
-		B3743322174FBD45004D0FC5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3743321174FBD45004D0FC5 /* CFNetwork.framework */; };
 		B374333D174FBFE2004D0FC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B374333C174FBFE2004D0FC5 /* AppDelegate.m */; };
 		B3743340174FBFE2004D0FC5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B374333E174FBFE2004D0FC5 /* MainMenu.xib */; };
-		B3743345174FC006004D0FC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3743344174FC006004D0FC5 /* Cocoa.framework */; };
 		B3743346174FC00D004D0FC5 /* DDSimpleHTTPd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1BB5230CEDF98300DA5506 /* DDSimpleHTTPd.framework */; };
 		B374335F174FCC3F004D0FC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B374334E174FCBFE004D0FC5 /* Foundation.framework */; };
 		B3743362174FCC3F004D0FC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3743361174FCC3F004D0FC5 /* main.m */; };
@@ -117,7 +115,6 @@
 		B3511EA617500F170006BA82 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		B3511EAB175010D50006BA82 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		B3743306174FB597004D0FC5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3743321174FBD45004D0FC5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = /System/Library/Frameworks/CFNetwork.framework; sourceTree = "<absolute>"; };
 		B3743327174FBFE2004D0FC5 /* DemoWebserver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DemoWebserver.app; path = DDSimpleHTTPd_CocoaDemoWebserver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3743329174FBFE2004D0FC5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B374332C174FBFE2004D0FC5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -127,9 +124,8 @@
 		B374333B174FBFE2004D0FC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B374333C174FBFE2004D0FC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B374333F174FBFE2004D0FC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		B3743344174FC006004D0FC5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		B374334E174FCBFE004D0FC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B374335E174FCC3F004D0FC5 /* cliTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = cliTool; path = DDSimpleHTTPd_cliTool; sourceTree = BUILT_PRODUCTS_DIR; };
+		B374335E174FCC3F004D0FC5 /* DDSimpleHTTPd_cliTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DDSimpleHTTPd_cliTool; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3743361174FCC3F004D0FC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B3743380174FCD37004D0FC5 /* liblibDDSimpleHTTPd_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibDDSimpleHTTPd_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B374339C174FCE60004D0FC5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
@@ -141,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3743322174FBD45004D0FC5 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3743346174FC00D004D0FC5 /* DDSimpleHTTPd.framework in Frameworks */,
-				B3743345174FC006004D0FC5 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +185,7 @@
 			children = (
 				FA1BB5230CEDF98300DA5506 /* DDSimpleHTTPd.framework */,
 				B3743327174FBFE2004D0FC5 /* DemoWebserver.app */,
-				B374335E174FCC3F004D0FC5 /* cliTool */,
+				B374335E174FCC3F004D0FC5 /* DDSimpleHTTPd_cliTool */,
 				B3743380174FCD37004D0FC5 /* liblibDDSimpleHTTPd_ios.a */,
 				B3511E8217500ED90006BA82 /* DDSimpleHTTPd_iosDemo.app */,
 			);
@@ -204,22 +198,12 @@
 				B3511E5D17500CEB0006BA82 /* DDSimpleHTTPd */,
 				B3743360174FCC3F004D0FC5 /* cliTool */,
 				B374332F174FBFE2004D0FC5 /* DemoWebserver */,
-				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				B3511E8817500EDA0006BA82 /* DDSimpleHTTPd_iosDemo */,
 				B3743328174FBFE2004D0FC5 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				B3743305174FB597004D0FC5 /* Framework */,
 			);
 			name = SimpleHTTPd;
-			sourceTree = "<group>";
-		};
-		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				B3743344174FC006004D0FC5 /* Cocoa.framework */,
-				B3743321174FBD45004D0FC5 /* CFNetwork.framework */,
-			);
-			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
 		};
 		B3511E5D17500CEB0006BA82 /* DDSimpleHTTPd */ = {
@@ -405,7 +389,7 @@
 			);
 			name = DDSimpleHTTPd_cliTool;
 			productName = cliTool;
-			productReference = B374335E174FCC3F004D0FC5 /* cliTool */;
+			productReference = B374335E174FCC3F004D0FC5 /* DDSimpleHTTPd_cliTool */;
 			productType = "com.apple.product-type.tool";
 		};
 		B374337F174FCD37004D0FC5 /* libDDSimpleHTTPd_ios */ = {
@@ -431,7 +415,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "DDSimpleHTTPd" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -605,11 +589,11 @@
 		1DEB91B208733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = "";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
@@ -617,11 +601,10 @@
 		1DEB91B308733DA50010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = "";
+				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
@@ -630,7 +613,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -670,7 +652,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -775,6 +756,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -795,6 +780,10 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -804,7 +793,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -835,7 +823,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;

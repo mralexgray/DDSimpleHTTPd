@@ -3,81 +3,69 @@
 //  TouchMe
 //
 //  Created by Alex P on 16/11/2007.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
+//  © 2007 __MyCompanyName__. All rights reserved.
 //
 
 #import "SimpleHTTPResponse.h"
+
+static NSDateFormatter *dateFormatter = nil;
 
 @implementation SimpleHTTPResponse {
 	NSMutableDictionary *_data;
 }
 
-- (id)init
-{
-	if(self = [super init]) {
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		[dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss zzz"];
-		
-		_data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-			[NSMutableDictionary dictionaryWithObjectsAndKeys:
-				@"text/html", @"Content-type",
-				[dateFormatter stringFromDate:[NSDate date]], @"Date",
-				[dateFormatter stringFromDate:[[NSDate alloc] initWithTimeIntervalSinceNow:10]], @"Expires",
-				@"SimpleHTTPd", @"Server",
-				nil
-			], @"headers",
-			[NSNumber numberWithInt:200], @"code",
-			[NSData data], @"content",
-			nil
-		];
-	}
-	
-	return self;
+- (id)init { dateFormatter = dateFormatter ?: [NSDateFormatter.alloc initWithDateFormat:@"EEE, dd MMM yyyy HH:mm:ss zzz" allowNaturalLanguage:YES];
+
+  return self = super.init ?
+  
+  _data = @{  @"headers" :  @{ @"Content-type" : @"text/html",
+                                       @"Date" : [dateFormatter stringFromDate:NSDate.date],
+                                    @"Expires" : [dateFormatter stringFromDate:[NSDate.alloc initWithTimeIntervalSinceNow:10]],
+                                     @"Server" : NSBundle.mainBundle.infoDictionary[@"CFBundleDisplayName"] ?: @"SimpleHTTPd"}.mutableCopy,
+              @"code"     : @200,
+              @"content"  : NSData.data }.mutableCopy, self : nil;
 }
 
-- (void)addHeader:(NSString *)key withValue:(NSString *)value
-{
-	[[_data objectForKey:@"headers"] setValue:value forKey:key];
+- (void)addHeader:(NSString *)key withValue:(NSString *)value {
+
+	[_data[@"headers"] setValue:value forKey:key];
 }
 
-- (NSDictionary *)headers
-{
-	return [_data objectForKey:@"headers"];
-}
+- (NSDictionary *)headers {	return _data[@"headers"]; }
 
 - (void)setContentType:(NSString *)mimeType
 {
-	[[_data objectForKey:@"headers"] setValue:[mimeType copy] forKey:@"Content-type"];
+	[_data[@"headers"] setValue:[mimeType copy] forKey:@"Content-type"];
 }
 
-- (NSString *)contentType
-{
-	return [[_data objectForKey:@"headers"] objectForKey:@"Content-type"];
+- (NSString *)contentType {
+
+	return _data[@"headers"][@"Content-type"];
 }
 
 - (void)setResponseCode:(int)code
 {
-	[_data setObject:[NSNumber numberWithInt:code] forKey:@"code"];
+	_data[@"code"] = @(code);
 }
 
 - (int)responseCode
 {
-	return [[_data objectForKey:@"code"] intValue];
+	return [_data[@"code"] intValue];
 }
 
 - (void)setContent:(NSData *)toData
 {
-	[_data setObject:toData forKey:@"content"];
+	_data[@"content"] = toData;
 }
 
 - (void)setContentString:(NSString *)toString
 {
-	[_data setObject:[toString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES] forKey:@"content"];
+	_data[@"content"] = [toString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
 }
 
 - (NSData *)content
 {
-	return [_data objectForKey:@"content"];
+	return _data[@"content"];
 }
 
 @end

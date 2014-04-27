@@ -3,7 +3,7 @@
  *  SimpleHTTPd
  *
  *  Created by Alex P on 16/11/2007.
- *  Copyright 2007 __MyCompanyName__. All rights reserved.
+ *  © 2007 __MyCompanyName__. All rights reserved.
  *
  */
 

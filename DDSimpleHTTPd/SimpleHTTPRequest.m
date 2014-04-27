@@ -3,17 +3,13 @@
 //  TouchMe
 //
 //  Created by Alex P on 16/11/2007.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
+//  © 2007 __MyCompanyName__. All rights reserved.
 //
 
 #import "SimpleHTTPRequest.h"
 #import "SimpleHTTPConnection.h"
 
-@implementation SimpleHTTPRequest {
-	NSDictionary *data;
-	NSDictionary *postVars;
-	NSDictionary *getVars;
-}
+@implementation SimpleHTTPRequest { NSDictionary *data, *postVars, *getVars; }
 
 - (id)initWithDictionary:(NSMutableDictionary *)dict
 {
@@ -24,17 +20,17 @@
 		if([self body] != nil) {
 			postVars = [self processArgs:[[NSString alloc] initWithBytes:[[self body] bytes] length:[[self body] length] encoding:NSUTF8StringEncoding]];
 		} else {
-			postVars = [NSDictionary dictionary];
+			postVars = @{};
 		}
 		
 		// split "blah.html?key=value&key=value" into ["blah.html", "key=value&key=value"]
 		NSArray *queryString = [[[self url] absoluteString] componentsSeparatedByString:@"?"];
 		
 		if([queryString count] == 2) {
-			[dict setObject:[NSURL URLWithString:[queryString objectAtIndex:0]] forKey:@"url"];
-			getVars = [self processArgs:[queryString objectAtIndex:1]];
+			dict[@"url"] = [NSURL URLWithString:queryString[0]];
+			getVars = [self processArgs:queryString[1]];
 		} else {
-			getVars = [NSDictionary dictionary];
+			getVars = @{};
 		}
 		
 		data = dict;
@@ -45,17 +41,17 @@
 
 - (NSURL *)url
 {
-	return [data objectForKey:@"url"];
+	return data[@"url"];
 }
 
 - (NSString *)method
 {
-	return [data objectForKey:@"method"];
+	return data[@"method"];
 }
 
 - (NSDictionary *)headers
 {
-	return [data objectForKey:@"headers"];
+	return data[@"headers"];
 }
 
 - (NSString *)getHeader:(NSString *)byName;
@@ -63,7 +59,7 @@
 	NSDictionary *headers = [self headers];
 	
 	if(headers != nil) {
-		return [headers objectForKey:byName];
+		return headers[byName];
 	}
 	
 	return nil;
@@ -71,27 +67,27 @@
 
 - (NSData *)body
 {
-	return [data objectForKey:@"body"];
+	return data[@"body"];
 }
 
 - (SimpleHTTPConnection *)connection
 {
-	return [data objectForKey:@"connection"];
+	return data[@"connection"];
 }
 
 - (NSDate *)date
 {
-	return [data objectForKey:@"date"];
+	return data[@"date"];
 }
 
 - (NSString *)postVar:(NSString *)byName
 {
-	return [postVars objectForKey:byName];
+	return postVars[byName];
 }
 
 - (NSString *)getVar:(NSString *)byName
 {
-	return [getVars objectForKey:byName];
+	return getVars[byName];
 }
 
 #pragma mark -
@@ -107,7 +103,7 @@
 		NSArray *keyValueArray = [keyValuePair componentsSeparatedByString:@"="];
 		
 		if([keyValueArray count] == 2) {
-			[output setObject:[keyValueArray objectAtIndex:1] forKey:[keyValueArray objectAtIndex:0]];
+			output[keyValueArray[0]] = keyValueArray[1];
 		}
 	}
 	

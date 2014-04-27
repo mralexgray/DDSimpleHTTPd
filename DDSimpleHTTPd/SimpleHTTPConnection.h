@@ -3,12 +3,12 @@
 //  SimpleCocoaHTTPServer
 //
 //  Created by Jürgen Schweizer on 13.09.06.
-//  Copyright 2006 Cultured Code.
+//  © 2006 Cultured Code.
 //  License: Creative Commons Attribution 2.5 License
 //           http://creativecommons.org/licenses/by/2.5/
 //
 //  Refactored for new objC,ARC and ios/foundation.framework 24.5.13
-//  Copyright 2013 Dominik Pich
+//  © 2013 Dominik Pich
 //
 
 #import <Foundation/Foundation.h>

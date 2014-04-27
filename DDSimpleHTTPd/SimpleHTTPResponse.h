@@ -3,10 +3,10 @@
 //  TouchMe
 //
 //  Created by Alex P on 16/11/2007.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
+//  © 2007 __MyCompanyName__. All rights reserved.
 //
 //  Refactored for new objC,ARC and ios/foundation.framework 24.5.13
-//  Copyright 2013 Dominik Pich
+//  © 2013 Dominik Pich
 //
 
 #import <Foundation/Foundation.h>

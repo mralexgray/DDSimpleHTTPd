@@ -3,7 +3,7 @@
 //  SimpleCocoaHTTPServer
 //
 //  Created by Jürgen Schweizer on 13.09.06.
-//  Copyright 2006 Cultured Code.
+//  © 2006 Cultured Code.
 //  License: Creative Commons Attribution 2.5 License
 //           http://creativecommons.org/licenses/by/2.5/
 //
@@ -46,7 +46,7 @@
 		if(addrData) {
 			struct sockaddr_in *sock = (struct sockaddr_in *)CFDataGetBytePtr(addrData);
 			char *naddr = inet_ntoa(sock->sin_addr);
-			[self setAddress:[NSString stringWithCString:naddr encoding:NSUTF8StringEncoding]];
+			[self setAddress:@(naddr)];
 			CFRelease(addrData);
 		} else {
 			[self setAddress:@"NULL"];
@@ -71,7 +71,7 @@
 
 - (void)dataReceivedNotification:(NSNotification *)notification
 {
-	NSData *data = [[notification userInfo] objectForKey:NSFileHandleNotificationDataItem];
+	NSData *data = [notification userInfo][NSFileHandleNotificationDataItem];
 //	NSLog(@"info: %@", [notification userInfo]);
 	if ([data length] == 0) {
 		// NSFileHandle's way of telling us that the client closed the connection

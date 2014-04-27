@@ -1,63 +1,53 @@
-//
-//  HTTPResponder.h
-//  TouchMe
-//
-//  Created by Alex P on 15/11/2007.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
-//
-//  Refactored for new objC,ARC and ios/foundation.framework 24.5.13
-//  Copyright 2013 Dominik Pich
+
+//  HTTPResponder.h  Created by Alex P on 15/11/2007
+//  Refactored for new objC,ARC and ios/foundation.framework 24.5.13 © 2013 Dominik Pich
 //
 
 #import <Foundation/Foundation.h>
 #import <CFNetwork/CFNetwork.h>
 
-@class SimpleHTTPRequest;
-@class SimpleHTTPResponse;
+@class SimpleHTTPRequest, SimpleHTTPResponse;
 
 @protocol SimpleHTTPResponderDelegate <NSObject>
 
-//if the delegate provides an answer we return that
-//else the stock implementation tries to do it
-//but it only knows a limited amount of mime types and can only do GETs
+/*! @return if the delegate provides an answer we return that
+    @note defaults implementation attempts to respond, but with only limited mime types, and can ONLY do @c GET's
+*/
 @optional
-- (SimpleHTTPResponse *)processPOST:(SimpleHTTPRequest *)request;
-- (SimpleHTTPResponse *)processGET:(SimpleHTTPRequest *)request;
+- (SimpleHTTPResponse*) processPOST:(SimpleHTTPRequest*)r;
+- (SimpleHTTPResponse*)  processGET:(SimpleHTTPRequest*)r;
 
 @end
 
-//all not thread safe and only meant to be used on main thread
-@interface SimpleHTTPResponder : NSObject
+/*! @class SimpleHTTPResponder @warning all not thread safe and only meant to be used on main thread */
 
-//all filetypes(with extensions) and their mimetype we can handle out-of-the-box
+@interface SimpleHTTPResponder : NSObject <SimpleHTTPResponderDelegate>
+
+/*! @return all filetypes(with extensions) and their mimetype we can handle out-of-the-box */
+
 + (NSDictionary*)knownMimetypes;
 
-//
-//the properties wont take effect while the server is up (delegate is the exception)
-//
+/*! @param webroot needs to be set if delegate doesnt handle everything.
+    @note the properties wont take effect while the server is up (delegate is the exception).
+    @param autogenerateIndex only applies if you dont specify an index file.
+*/
+@property (nonatomic,copy) NSString * webRoot,
+                                    * indexFile,
+                                    * bonjourName;
+@property (readonly)          NSURL * localURL;
+@property (nonatomic)          BOOL   autogenerateIndex,
+                                      loggingEnabled;
+@property(nonatomic)      NSUInteger  port;
 
-@property(nonatomic, assign) NSUInteger port;
-//needs to be set if delegate doesnt handle everything
-@property(nonatomic, copy) NSString *webRoot;
-@property(nonatomic, copy) NSString *indexFile;
-//if you dont specify an index file
-@property(nonatomic, assign) BOOL autogenerateIndex;
-@property(nonatomic, assign) id<SimpleHTTPResponderDelegate> delegate;
-@property(nonatomic, copy) NSString *bonjourName;
+@property(nonatomic,assign) id<SimpleHTTPResponderDelegate> delegate;
 
-- (void)startListening;
-@property(nonatomic, readonly) BOOL isListening;
-- (void)stopListening;
-
-@property(nonatomic, assign, getter = isLoggingEnabled) BOOL loggingEnabled;
+@property(nonatomic, getter = isListening) BOOL listening;
 
 @end
 
 @interface SimpleHTTPResponder (RequestProcessing)
 
-- (SimpleHTTPResponse *)processPOST:(SimpleHTTPRequest *)request;
-- (SimpleHTTPResponse *)processGET:(SimpleHTTPRequest *)request;
-- (SimpleHTTPResponse *)processRequest:(SimpleHTTPRequest *)request;
-- (void)stopProcessing;
+- (SimpleHTTPResponse*) processRequest:(SimpleHTTPRequest*)r;
+- (void) stopProcessing;
 
 @end
